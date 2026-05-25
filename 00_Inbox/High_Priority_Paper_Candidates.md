@@ -91,3 +91,90 @@
   - 2D/3D設定での再現性検証の有無
 
 ---
+
+---
+
+## 候補論文 4: Accelerated Time-Domain Simulation of Complex Photonic Structures with a Data-Aware Fourier Neural Operator
+
+- **Title**: Accelerated Time-Domain Simulation of Complex Photonic Structures with a Data-Aware Fourier Neural Operator
+- **Authors**: Zaifan Wu, Yue You, Xian Zhou, Fan Zhang
+- **Year**: 2025
+- **arXiv ID**: 2508.17238
+- **URL**: https://arxiv.org/abs/2508.17238
+- **使用手法**: Data-Aware Fourier Neural Operator (DA-FNO) — FDTDの代替として時間領域電磁界シミュレーションを加速。FNOにデータ認識性を組み込み、複雑な光子構造の電磁界進化を学習。
+- **baseline**: 従来のFDTD (Finite-Difference Time-Domain) 数値解法
+- **評価指標**: 電磁界シミュレーションの精度、計算加速比
+- **精度向上**: 要本文確認 — FNOベースでFDTDを加速したと記載されているが、具体的な数値は本文確認が必要
+- **本研究への使い道**:
+  - FNOをFDTD代替として電磁界シミュレーションに適用した先行研究として最も直接的。WiFi伝播予測のFNOベースsurrogateモデル構築の参考になる。
+  - Data-Awareな設計: 入力データ特性に応じてFNOの振る舞いを調整する手法は、本研究の「室内環境固有の伝播特性を学習する」という方針と一致。
+  - 時間領域シミュレーションへのFNO適用: WiFi伝播を周波数領域だけでなく時間領域でもモデル化する際の参考になる。
+- **現在データ形式で使えるか**: 要確認 — 光子構造のシミュレーションなので、WiFi伝播の2D/3D空間データへの直接適用は自明ではないが、FNOのアーキテクチャ設計の参考にはなる。
+- **実装コスト**: 中程度 — FNOの基本的な実装は既存だが、Data-Awareな拡張部分の実装が必要。
+- **注意点**:
+  - 光子デバイス（光学）が対象であり、無線通信のWiFi伝播とは物理スケールが異なる。
+  - 時間領域シミュレーションに焦点があり、本研究の周波数領域アプローチとの整合性を確認する必要がある。
+- **要確認事項**:
+  - Data-Awareな設計の具体的な実装方法
+  - FDTDとの定量的比較結果（加速比、精度）
+  - 複雑な幾何学形状への一般化性能
+  - WiFi帯域（2.4GHz/5GHz）の電磁界シミュレーションへの適用可能性
+
+---
+
+## 候補論文 5: Learning Function-to-Function Mappings: A Fourier Neural Operator for Next-Generation MIMO Systems
+
+- **Title**: Learning Function-to-Function Mappings: A Fourier Neural Operator for Next-Generation MIMO Systems
+- **Authors**: Jian Xiao, Ji Wang, Qi Sun, Qimei Cui, Xingwang Li
+- **Year**: 2025
+- **arXiv ID**: 2510.04664
+- **URL**: https://arxiv.org/abs/2510.04664
+- **使用手法**: Fourier Neural Operator (FNO) を次世代MIMOシステムに適用。超大規模アンテナ配列、ホログラフィックサーフェス、近接領域伝播の物理層信号処理をFNOでモデル化。
+- **baseline**: 従来のMIMO信号処理手法、物理ベースの伝播モデル
+- **評価指標**: 信号処理精度、スペクトル効率、計算効率
+- **精度向上**: 要本文確認 — FNOが従来のMIMO信号処理を改善したと記載されているが、具体的な数値は本文確認が必要
+- **本研究への使い道**:
+  - FNOを無線通信システムに適用した研究として直接的。WiFi伝播予測のFNOベースsurrogateモデルの設計参考になる。
+  - 近接領域伝播（near-field propagation）のモデル化: 室内WiFi環境でアンテナが近い場合の伝播特性をFNOで捉える手法の参考になる。
+  - 連続アパーチャモデル化: 空間的に連続的な伝播場をFNOで表現するアプローチは、本研究の2D空間データへの適用と一致。
+- **現在データ形式で使えるか**: 要確認 — MIMOシステムが対象なので、WiFi伝播のRSSI/電界強度データへの直接適用は自明ではないが、FNOのアーキテクチャ設計の参考にはなる。
+- **実装コスト**: 中程度 — FNOの基本的な実装は既存だが、MIMO特有の入力表現（アンテナ配列、チャネル状態）をWiFi伝播データにどのように対応付けるかは要検討。
+- **注意点**:
+  - MIMO信号処理が対象であり、WiFi伝播予測とは目的が異なる。
+  - 超大規模アンテナ配列の設定なので、本研究の室内WiFi環境とのスケール違いを考慮する必要がある。
+- **要確認事項**:
+  - FNOの入力表現（どのように伝播場を表現しているか）
+  - 近接領域伝播モデルの具体的な実装
+  - 従来のMIMO手法との定量的比較結果
+  - WiFi帯域での検証の有無
+
+---
+
+## 候補論文 6: MscaleFNO: Multi-scale Fourier Neural Operator Learning for Oscillatory Function Spaces
+
+- **Title**: MscaleFNO: Multi-scale Fourier Neural Operator Learning for Oscillatory Function Spaces
+- **Authors**: Zhilin You, Zhenli Xu, Wei Cai
+- **Year**: 2024
+- **arXiv ID**: 2412.20183
+- **URL**: https://arxiv.org/abs/2412.20183
+- **使用手法**: Multi-scale Fourier Neural Operator (MscaleFNO) — 高周波数成分の学習におけるFNOのスペクトルバイアスを低減。並列のFNOに異なるスケールの入力を与え、その出力を組み合わせることで、ヘルムホルツ方程式の解の高周波数成分を捉える。
+- **baseline**: 標準FNO、他のNeural Operator手法
+- **評価指標**: ヘルムホルツ方程式の解の精度、高周波数成分の再現性
+- **精度向上**: 要本文確認 — 標準FNOと比較して高周波数成分の学習精度が改善したと記載されているが、具体的な数値は本文確認が必要
+- **本研究への使い道**:
+  - ヘルムホルツ方程式を直接対象としたFNOの研究として極めて重要。WiFi伝播はヘルムホルツ方程式で記述されるため、FNOの周波数特性改善手法は直接的に参考になる。
+  - スペクトルバイアスの低減: FNOが低周波数成分を優先して学習する問題は、WiFi伝播の近接領域効果やマルチパス干渉のような高周波数空間変動を捉える上でボトルネックになる。MscaleFNOのアプローチはこの問題に直接取り組んでいる。
+  - 非線形マッピングの学習: ヘルムホルツ方程式の係数から解への非線形マッピングをFNOで学習する手法は、本研究の「環境配置→伝播場」マッピングと概念的に一致。
+- **現在データ形式で使えるか**: 要確認 — ヘルムホルツ方程式の数値解が対象なので、WiFi伝播の測定データへの直接適用は自明ではないが、FNOのアーキテクチャ改善の参考にはなる。
+- **実装コスト**: 中高 — 並列FNOのスケール設計と出力統合ロジックの実装が必要。本研究のFNO実装に統合するにはアーキテクチャの改変が必要。
+- **注意点**:
+  - ヘルムホルツ方程式の数値解が対象であり、実際のWiFi伝播測定データとの整合性を確認する必要がある。
+  - 並列FNOの計算コストが増加するため、本研究のリアルタイム推論要件との兼ね合いを考慮する必要がある。
+- **要確認事項**:
+  - MscaleFNOの具体的なアーキテクチャ設計（スケール数、統合方法）
+  - 標準FNOとの定量的比較結果
+  - 計算コストの増加量
+  - 2D/3D空間での検証結果
+  - WiFi伝播のような実際の物理場への適用可能性
+
+---
