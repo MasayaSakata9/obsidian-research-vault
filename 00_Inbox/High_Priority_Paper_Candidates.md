@@ -1,6 +1,6 @@
 # High Priority Paper Candidates
 
-> 最終更新: 2026-05-25
+> 最終更新: 2026-05-26
 > 検索クエリ:
 >   1. ti:"Fourier" AND ti:"Neural Operator" AND (wave OR electromagnetic OR "wave propagation" OR scattering)
 >   2. ti:"neural operator" AND (wave OR Helmholtz OR Maxwell OR "wave equation")
@@ -122,34 +122,6 @@
 
 ---
 
-## 候補論文 5: Learning Function-to-Function Mappings: A Fourier Neural Operator for Next-Generation MIMO Systems
-
-- **Title**: Learning Function-to-Function Mappings: A Fourier Neural Operator for Next-Generation MIMO Systems
-- **Authors**: Jian Xiao, Ji Wang, Qi Sun, Qimei Cui, Xingwang Li
-- **Year**: 2025
-- **arXiv ID**: 2510.04664
-- **URL**: https://arxiv.org/abs/2510.04664
-- **使用手法**: Fourier Neural Operator (FNO) を次世代MIMOシステムに適用。超大規模アンテナ配列、ホログラフィックサーフェス、近接領域伝播の物理層信号処理をFNOでモデル化。
-- **baseline**: 従来のMIMO信号処理手法、物理ベースの伝播モデル
-- **評価指標**: 信号処理精度、スペクトル効率、計算効率
-- **精度向上**: 要本文確認 — FNOが従来のMIMO信号処理を改善したと記載されているが、具体的な数値は本文確認が必要
-- **本研究への使い道**:
-  - FNOを無線通信システムに適用した研究として直接的。WiFi伝播予測のFNOベースsurrogateモデルの設計参考になる。
-  - 近接領域伝播（near-field propagation）のモデル化: 室内WiFi環境でアンテナが近い場合の伝播特性をFNOで捉える手法の参考になる。
-  - 連続アパーチャモデル化: 空間的に連続的な伝播場をFNOで表現するアプローチは、本研究の2D空間データへの適用と一致。
-- **現在データ形式で使えるか**: 要確認 — MIMOシステムが対象なので、WiFi伝播のRSSI/電界強度データへの直接適用は自明ではないが、FNOのアーキテクチャ設計の参考にはなる。
-- **実装コスト**: 中程度 — FNOの基本的な実装は既存だが、MIMO特有の入力表現（アンテナ配列、チャネル状態）をWiFi伝播データにどのように対応付けるかは要検討。
-- **注意点**:
-  - MIMO信号処理が対象であり、WiFi伝播予測とは目的が異なる。
-  - 超大規模アンテナ配列の設定なので、本研究の室内WiFi環境とのスケール違いを考慮する必要がある。
-- **要確認事項**:
-  - FNOの入力表現（どのように伝播場を表現しているか）
-  - 近接領域伝播モデルの具体的な実装
-  - 従来のMIMO手法との定量的比較結果
-  - WiFi帯域での検証の有無
-
----
-
 ## 候補論文 6: MscaleFNO: Multi-scale Fourier Neural Operator Learning for Oscillatory Function Spaces
 
 - **Title**: MscaleFNO: Multi-scale Fourier Neural Operator Learning for Oscillatory Function Spaces
@@ -210,91 +182,29 @@
 
 ---
 
-## Paper: Multi-fidelity Fourier Neural Operator for Fast Modeling of Large-Scale Geological Carbon Storage
-
-| Field | Content |
-|---|---|
-| **Title** | Multi-fidelity Fourier Neural Operator for Fast Modeling of Large-Scale Geological Carbon Storage |
-| **Authors** | Hewei Tang, Qingkai Kong, Joseph P. Morris |
-| **Year** | 2023 |
-| **arXiv ID** | 2308.09113 |
-| **URL** | https://arxiv.org/abs/2308.09113 |
-| **使用手法** | Multi-fidelity Fourier Neural Operator (MF-FNO) — 高忠実度データと低忠実度データを組み合わせてFNOを訓練。グリッド不変性により異なる離散化間での転移学習を簡素化。低忠実度データで事前学習し、高忠実度データで微調整する2段階アプローチ。 |
-| **baseline** | 単一忠実度のFNO（高忠実度のみ、または低忠実度のみで訓練） |
-| **評価指標** | 圧力場予測の相対誤差、CO2プルームの移動予測精度、データ生成コスト |
-| **精度向上** | 高忠実度データのみで訓練したFNOと同等の精度を、81%少ないデータ生成コストで達成。100万グリッドセルの細分化モデルでも合理的な精度を維持。 |
-| **本研究への使い道** |
-  - Multi-fidelity学習: 本研究でも粗い数値シミュレーションと高精度測定データを組み合わせてFNOを訓練する可能性があるため、直接的な参考になる。
-  - データ効率的な訓練: 高忠実度データが限られている状況（本研究でも同様の制約あり）で効果的な学習手法を提供。
-  - グリッド不変性: 異なる空間解像度のデータ間での転移が容易。本研究で複数の空間スケールを扱う場合に有用。 |
-| **現在データ形式で使えるか** | 比較的高 — FNOのアーキテクチャ自体は転移可能。multi-fidelityの訓練パイプラインは本研究のデータ構成に適合する可能性が高い。 |
-| **実装コスト** | 中 — FNOの実装は既存のライブラリ（NeuralOperator）が利用可能。multi-fidelityの訓練ロジックを追加実装する必要あり。 |
-| **注意点** |
-  - 地質学的炭素貯留（多孔質媒体流体力学）が対象であり、電磁波伝播との物理的違いを考慮する必要がある。
-  - 低忠実度と高忠実度のデータ生成パイプラインの設計が重要。 |
-| **要確認事項** |
-  - multi-fidelity FNOの具体的な訓練プロトコル（損失関数の重み付け、2段階訓練の詳細）
-  - 低忠実度データと高忠実度データの忠実度ギャップが大きい場合の性能
-  - WiFi伝播のデータ構成（数値シミュレーション+測定データ）への適用可能性
-  - 計算リソース要件 |
-
----
-
-## Paper: Multi-Fidelity Flow Matching: Cascaded Refinement of PDE Solutions
-
-| Field | Content |
-|---|---|
-| **Title** | Multi-Fidelity Flow Matching: Cascaded Refinement of PDE Solutions |
-| **Authors** | Sipeng Chen, Junliang Liu, Hewei Tang, Shibo Li |
-| **Year** | 2026 |
-| **arXiv ID** | 2605.16118 |
-| **URL** | https://arxiv.org/abs/2605.16118 |
-| **使用手法** | Multi-Fidelity Flow Matching (MFFM) — 条件付きフローマッチングのソース分布を低忠実度→高忠実度の残差スケールに較正。低忠実度解を条件として与え、残差を段階的に精緻化。マルチリゾリューションカスケードで隣接する忠実度レベル間を独立に処理。レベル間フローマッチング事前学習後、決定論的1ステップロールアウトでエンドツーエンド微調整。 |
-| **baseline** | 単一忠実度のフローマッチング、従来のmulti-fidelity手法 |
-| **評価指標** | PDEBenchの8つのベンチマーク（2つのスーパーリゾリューション問題、6つの時空予測タスク）での解の精度、推論速度 |
-| **精度向上** | 要本文確認 — PDEBenchベンチマークで検証されているが、具体的な数値は本文確認が必要。決定論的推論で1クエリあたりL回のネットワーク評価のみで最細グリッドに到達。 |
-| **本研究への使い道** |
-  - Wavefield super-resolution: 低解像度の伝播場予測を高解像度に精緻化するアプローチは、本研究のsparse observationからのsuper-resolution目標に直接的に関連。
-  - Multi-fidelity cascade: 粗いシミュレーション→高精度測定への段階的改善は、本研究のデータ構成と一致。
-  - 決定論的推論: 確率的サンプリング不要で高速推論可能。リアルタイムWiFi伝播予測の要件に適合。 |
-| **現在データ形式で使えるか** | 要確認 — PDEの一般的手法なので転用可能だが、WiFi伝播の具体的なデータ形式への適合性を検証する必要がある。 |
-| **実装コスト** | 中高 — フローマッチングのアーキテクチャとmulti-fidelityカスケードの実装が必要。事前学習と微調整の2段階訓練パイプラインの構築も必要。 |
-| **注意点** |
-  - 2026年5月の非常に新しい論文。コードや再現性がまだ確立されていない可能性。
-  - PDEBenchのベンチマークは流体力学・ナビエストークス方程式が中心であり、電磁波方程式への適用は未検証。 |
-| **要確認事項** |
-  - フローマッチングのソース分布較正の具体的な方法
-  - マルチリゾリューションカスケードのレベル数と解像度設定
-  - 決定論的微調整の訓練安定性
-  - 電磁波/ヘルムホルツ方程式への適用事例の有無
-  - 実装コードの公開状況 |
-
----
-
 ## 10. A neural operator-based surrogate solver for free-form electromagnetic inverse design
 
 | **Title** | A neural operator-based surrogate solver for free-form electromagnetic inverse design |
-| **Authors** | A. S. R. Srinivasan, M. A. Balanis, A. E. Siegman (Stanford University) |
+| **Authors** | Yannick Augenstein, Taavi Repan, Carsten Rockstuhl |
 | **Year** | 2023 |
 | **arXiv ID** | 2302.01934 |
 | **URL** | https://arxiv.org/abs/2302.01934 |
-| **使用手法** | U-Net (CNN) ベースのサロゲートモデル。Maxwell方程式の逆設計問題を学習。入力: 材料分布 (誘電率)、出力: 電磁場分布。FDTDシミュレーションペアで教師あり学習。 |
-| **baseline** | 従来のFDTDシミュレーションとの比較。サロゲートモデルでFDTD計算を置き換え可能か検証。 |
-| **評価指標** | 電磁場再構成の精度 (場分布の誤差)、計算速度の改善率 |
-| **精度向上** | 要本文確認 — FDTD計算を置き換える精度が示されているが、具体的な数値は本文確認が必要。 |
+| **使用手法** | modified Fourier Neural Operatorを3D electromagnetic scattering surrogate solverとして訓練し、free-form nanophotonic inverse designへ接続。 |
+| **baseline** | 既存の電磁界サロゲート/数値ソルバとのデータ効率比較。詳細な比較対象と数値は要本文確認。 |
+| **評価指標** | scattering field prediction error、data efficiency、inverse designでの最適化性能。詳細数値は要本文確認。 |
+| **精度向上** | 要本文確認 — arXiv概要ではmodified FNOを電磁散乱問題のサロゲートとして実装し、既存手法とのデータ効率比較を行うとされている。 |
 | **本研究への使い道** |
-  - U-Netベースのサロゲートモデルは、本研究のFNO baselineと比較するための強固なbaselineとして使える。
-  - Maxwell方程式の逆設計問題への適用は、本研究の「入力: eps_r, sigma, source_map → 出力: Ez」と同じデータフローと一致。
-  - FDTDペアデータセットの構築方法が参考になる。 |
-| **現在データ形式で使えるか** | 要確認 — 本研究の2D Ez定常場設定と互換性があるか確認が必要。材料分布の入力形式が本研究のeps_r/sigmaと一致する可能性。 |
-| **実装コスト** | 中 — U-Netは標準的なアーキテクチャで実装容易。ただしFDTD教師データ生成パイプラインが必要。 |
+  - modified FNOを電磁散乱のfield solver surrogateに使う先行例として重要。
+  - 入力材料分布から電磁場を予測する構造は、本研究のeps_r/sigma/source_mapからEzを予測する設定に近い。
+  - ただし対象はnanophotonic inverse designなので、順伝播field prediction部分だけを参照する。 |
+| **現在データ形式で使えるか** | 要確認 — 3D nanophotonic scattering向けなので、2D indoor WiFi Ez定常場へは入力チャネル、境界条件、source表現の再設計が必要。 |
+| **実装コスト** | 中高 — modified FNOの構造と3D/2D差分を確認し、本研究の2D FNO baselineへ移植できる部分だけ検討する。 |
 | **注意点** |
-  - 2023年の論文で、FNOではなくU-Netベース。本研究のFNO baselineとの公平比較にはU-Netの実装が必要。
-  - 逆設計問題（target field → material distribution）であり、本研究の順伝播問題（material → field）とは目的が異なる。損失関数の設計はそのまま使えない。 |
+  - 逆設計応用が主目的であり、本研究の順伝播サロゲートとは評価目的が異なる。
+  - ナノフォトニクスと室内WiFiではスケール、境界条件、材料分布が大きく異なる。 |
 | **要確認事項** |
-  - U-Netの具体的なアーキテクチャ（層数、ch数、入力/出力解像度）
-  - FDTDペアデータセットのサイズと学習コスト
-  - 電磁場誤差の具体的な数値（MAE、最大誤差など）
+  - modified FNOの具体的な変更点
+  - scattering field誤差とデータ効率の具体値
   - 本研究の2D Ez定常場設定との互換性
   - 実装コードの公開状況 |
 
@@ -303,14 +213,14 @@
 ## 11. PIC2O-Sim: A Physics-Inspired Causality-Aware Dynamic Convolutional Neural Operator for Ultra-Fast Photonic Device FDTD Simulation
 
 | **Title** | PIC2O-Sim: A Physics-Inspired Causality-Aware Dynamic Convolutional Neural Operator for Ultra-Fast Photonic Device FDTD Simulation |
-| **Authors** | 北京大学、中国科学院など |
+| **Authors** | Pingchuan Ma, Haoyu Yang, Zhengqi Gao, Duane S. Boning, Jiaqi Gu |
 | **Year** | 2024 |
 | **arXiv ID** | 2406.17810 |
 | **URL** | https://arxiv.org/abs/2406.17810 |
 | **使用手法** | 物理インスパイアされた因果性認識動的畳み込みニューラルオペレータ (PIC2O)。FDTDシミュレーションのサロゲートモデル。光デバイスの電磁場シミュレーションを高速化。動的畳み込み重みにより空間的に変化する媒質特性を適応的に処理。 |
 | **baseline** | 従来のFDTDシミュレーション、標準的なニューラルオペレータ (FNOなど) |
 | **評価指標** | 電磁場再構成精度、計算速度の改善率 (FDTD 대비何倍高速か)、メモリ使用量 |
-| **精度向上** | 要本文確認 — FDTDシミュレーションを大幅に高速化しながら精度を維持しているが、具体的な数値は本文確認が必要。 |
+| **精度向上** | arXiv概要では、state-of-the-art neural operatorsよりroll-out prediction errorを51.2%低減、パラメータ数を23.5倍削減、open-source FDTD solver比で300-600x高速化とされる。本文で条件と評価指標を要確認。 |
 | **本研究への使い道** |
   - FDTDシミュレーションのサロゲートモデルとして直接関連。本研究の「Meep/FDTDで生成したデータをFNOで近似する」というアプローチと完全に一致。
   - 因果性認識の設計は、電磁波伝播の物理的制約をモデルに組み込む参考になる。
@@ -327,54 +237,3 @@
   - 電磁場誤差の具体的な数値
   - 本研究の2D Ez定常場設定への適用可能性
   - 実装コードの公開状況 |
-
----
-
-## 12. Bridging ocean wave physics and deep learning: Physics-informed neural operators for nonlinear wavefield reconstruction in real-time
-
-| **Title** | Bridging ocean wave physics and deep learning: Physics-informed neural operators for nonlinear wavefield reconstruction in real-time |
-| **Authors** | 複数機関の共同研究 |
-| **Year** | 2025 |
-| **arXiv ID** | 2508.03315 |
-| **URL** | https://arxiv.org/abs/2508.03315 |
-| **使用手法** | 物理情報ニューラルオペレータ (PINO) を非線形波場再構成に応用。海洋波の物理法則を損失関数に組み込み、リアルタイムの波場予測を実現。sparse observationからのfull field再構成にも対応。 |
-| **baseline** | 従来の数値波シミュレーション、標準的なニューラルネットワークベースの波場予測 |
-| **評価指標** | 波場再構成精度 (場分布の誤差)、リアルタイム推論速度、sparse observationからの再構成精度 |
-| **精度向上** | 要本文確認 — 物理情報の組み込みにより精度向上とリアルタイム推論を実現しているが、具体的な数値は本文確認が必要。 |
-| **本研究への使い道** |
-  - 物理情報ニューラルオペレータのアプローチは、本研究のFNOに物理的制約（Maxwell方程式、境界条件など）を組み込む参考になる。
-  - sparse observationからのfull field再構成は、本研究の「sparse observation → full field FNO」の目標と直接一致。
-  - リアルタイム推論の設計は、本研究の高速WiFi伝播予測の要件に適合。 |
-| **現在データ形式で使えるか** | 要確認 — 海洋波の設定であり、電磁波との物理的差異がある。ただしニューラルオペレータの枠組みと物理情報の組み込み方は転用可能。 |
-| **実装コスト** | 中 — 物理情報損失関数の設計が必要。ただしFNOのベースアーキテクチャは共通。 |
-| **注意点** |
-  - 海洋波の物理法則（浅水方程式など）であり、電磁波のMaxwell方程式への適用は直接的ではない。物理損失関数の設計を電磁波向けに再設計する必要がある。 |
-| **要確認事項** |
-  - 物理情報損失関数の具体的な設計方法
-  - sparse observationの設定（観測点の数、配置、間隔）
-  - wavefield再構成の具体的な精度数値
-  - リアルタイム推論の定義（推論時間、フレームレートなど）
-  - 電磁波方程式への適用事例の有無
-  - 実装コードの公開状況 |
-
----
-
-
----
-
-## 2025-09-07 | Data-Efficient Time-Dependent PDE Surrogates: Graph Neural Simulators vs. Neural Operators
-
-- **Authors**: Dibyajyoti Nayak, Somdatta Goswami
-- **Year**: 2025
-- **arXiv ID**: 2509.06154
-- **URL**: https://arxiv.org/abs/2509.06154
-- **Priority**: High
-- **使用手法**: Graph Neural Simulators vs. Neural Operators for time-dependent PDE surrogates
-- **baseline**: Graph Neural Networks, Neural Operators
-- **評価指標**: 要本文確認
-- **精度向上**: 要本文確認
-- **本研究への使い道**: Neural operator と GNN の比較、data-efficient surrogate modeling のアプローチ
-- **現在のデータ形式で使えるか**: 要確認（time-dependent PDE 向け）
-- **実装コスト**: Medium
-- **要確認事項**: electromagnetic wave propagation への適用可能性、sparse observation 対応
-
