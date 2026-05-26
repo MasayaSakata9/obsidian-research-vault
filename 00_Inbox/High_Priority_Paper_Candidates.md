@@ -358,3 +358,23 @@
   - 実装コードの公開状況 |
 
 ---
+
+
+---
+
+## 2025-09-07 | Data-Efficient Time-Dependent PDE Surrogates: Graph Neural Simulators vs. Neural Operators
+
+- **Authors**: Dibyajyoti Nayak, Somdatta Goswami
+- **Year**: 2025
+- **arXiv ID**: 2509.06154
+- **URL**: https://arxiv.org/abs/2509.06154
+- **Priority**: High
+- **使用手法**: Graph Neural Simulators vs. Neural Operators for time-dependent PDE surrogates
+- **baseline**: Graph Neural Networks, Neural Operators
+- **評価指標**: 要本文確認
+- **精度向上**: 要本文確認
+- **本研究への使い道**: Neural operator と GNN の比較、data-efficient surrogate modeling のアプローチ
+- **現在のデータ形式で使えるか**: 要確認（time-dependent PDE 向け）
+- **実装コスト**: Medium
+- **要確認事項**: electromagnetic wave propagation への適用可能性、sparse observation 対応
+
