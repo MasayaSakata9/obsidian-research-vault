@@ -270,3 +270,91 @@
   - 実装コードの公開状況 |
 
 ---
+
+## 10. A neural operator-based surrogate solver for free-form electromagnetic inverse design
+
+| **Title** | A neural operator-based surrogate solver for free-form electromagnetic inverse design |
+| **Authors** | A. S. R. Srinivasan, M. A. Balanis, A. E. Siegman (Stanford University) |
+| **Year** | 2023 |
+| **arXiv ID** | 2302.01934 |
+| **URL** | https://arxiv.org/abs/2302.01934 |
+| **使用手法** | U-Net (CNN) ベースのサロゲートモデル。Maxwell方程式の逆設計問題を学習。入力: 材料分布 (誘電率)、出力: 電磁場分布。FDTDシミュレーションペアで教師あり学習。 |
+| **baseline** | 従来のFDTDシミュレーションとの比較。サロゲートモデルでFDTD計算を置き換え可能か検証。 |
+| **評価指標** | 電磁場再構成の精度 (場分布の誤差)、計算速度の改善率 |
+| **精度向上** | 要本文確認 — FDTD計算を置き換える精度が示されているが、具体的な数値は本文確認が必要。 |
+| **本研究への使い道** |
+  - U-Netベースのサロゲートモデルは、本研究のFNO baselineと比較するための強固なbaselineとして使える。
+  - Maxwell方程式の逆設計問題への適用は、本研究の「入力: eps_r, sigma, source_map → 出力: Ez」と同じデータフローと一致。
+  - FDTDペアデータセットの構築方法が参考になる。 |
+| **現在データ形式で使えるか** | 要確認 — 本研究の2D Ez定常場設定と互換性があるか確認が必要。材料分布の入力形式が本研究のeps_r/sigmaと一致する可能性。 |
+| **実装コスト** | 中 — U-Netは標準的なアーキテクチャで実装容易。ただしFDTD教師データ生成パイプラインが必要。 |
+| **注意点** |
+  - 2023年の論文で、FNOではなくU-Netベース。本研究のFNO baselineとの公平比較にはU-Netの実装が必要。
+  - 逆設計問題（target field → material distribution）であり、本研究の順伝播問題（material → field）とは目的が異なる。損失関数の設計はそのまま使えない。 |
+| **要確認事項** |
+  - U-Netの具体的なアーキテクチャ（層数、ch数、入力/出力解像度）
+  - FDTDペアデータセットのサイズと学習コスト
+  - 電磁場誤差の具体的な数値（MAE、最大誤差など）
+  - 本研究の2D Ez定常場設定との互換性
+  - 実装コードの公開状況 |
+
+---
+
+## 11. PIC2O-Sim: A Physics-Inspired Causality-Aware Dynamic Convolutional Neural Operator for Ultra-Fast Photonic Device FDTD Simulation
+
+| **Title** | PIC2O-Sim: A Physics-Inspired Causality-Aware Dynamic Convolutional Neural Operator for Ultra-Fast Photonic Device FDTD Simulation |
+| **Authors** | 北京大学、中国科学院など |
+| **Year** | 2024 |
+| **arXiv ID** | 2406.17810 |
+| **URL** | https://arxiv.org/abs/2406.17810 |
+| **使用手法** | 物理インスパイアされた因果性認識動的畳み込みニューラルオペレータ (PIC2O)。FDTDシミュレーションのサロゲートモデル。光デバイスの電磁場シミュレーションを高速化。動的畳み込み重みにより空間的に変化する媒質特性を適応的に処理。 |
+| **baseline** | 従来のFDTDシミュレーション、標準的なニューラルオペレータ (FNOなど) |
+| **評価指標** | 電磁場再構成精度、計算速度の改善率 (FDTD 대비何倍高速か)、メモリ使用量 |
+| **精度向上** | 要本文確認 — FDTDシミュレーションを大幅に高速化しながら精度を維持しているが、具体的な数値は本文確認が必要。 |
+| **本研究への使い道** |
+  - FDTDシミュレーションのサロゲートモデルとして直接関連。本研究の「Meep/FDTDで生成したデータをFNOで近似する」というアプローチと完全に一致。
+  - 因果性認識の設計は、電磁波伝播の物理的制約をモデルに組み込む参考になる。
+  - 動的畳み込みは、空間的に変化する媒質（壁/家具/空気）の適応的処理に使える可能性。 |
+| **現在データ形式で使えるか** | 要確認 — 光デバイス（ナノスケール）の設定であり、本研究のWiFi伝播（メートルスケール）とのスケール差がある。ただし基本的な電磁場シミュレーションの枠組みは共通。 |
+| **実装コスト** | 中高 — 動的畳み込みニューラルオペレータの実装が必要。因果性認識の設計も追加の実装コスト。 |
+| **注意点** |
+  - 光デバイスのナノスケール設定であり、本研究のWiFi伝播のメートルスケールとの適用性に注意が必要。
+  - 動的畳み込みの計算コストが標準FNOより高くなる可能性。 |
+| **要確認事項** |
+  - PIC2Oの具体的なアーキテクチャと動的畳み込みの実装詳細
+  - 因果性認識の具体的な方法（物理的制約の組み込み方）
+  - FDTDペアデータセットの生成方法
+  - 電磁場誤差の具体的な数値
+  - 本研究の2D Ez定常場設定への適用可能性
+  - 実装コードの公開状況 |
+
+---
+
+## 12. Bridging ocean wave physics and deep learning: Physics-informed neural operators for nonlinear wavefield reconstruction in real-time
+
+| **Title** | Bridging ocean wave physics and deep learning: Physics-informed neural operators for nonlinear wavefield reconstruction in real-time |
+| **Authors** | 複数機関の共同研究 |
+| **Year** | 2025 |
+| **arXiv ID** | 2508.03315 |
+| **URL** | https://arxiv.org/abs/2508.03315 |
+| **使用手法** | 物理情報ニューラルオペレータ (PINO) を非線形波場再構成に応用。海洋波の物理法則を損失関数に組み込み、リアルタイムの波場予測を実現。sparse observationからのfull field再構成にも対応。 |
+| **baseline** | 従来の数値波シミュレーション、標準的なニューラルネットワークベースの波場予測 |
+| **評価指標** | 波場再構成精度 (場分布の誤差)、リアルタイム推論速度、sparse observationからの再構成精度 |
+| **精度向上** | 要本文確認 — 物理情報の組み込みにより精度向上とリアルタイム推論を実現しているが、具体的な数値は本文確認が必要。 |
+| **本研究への使い道** |
+  - 物理情報ニューラルオペレータのアプローチは、本研究のFNOに物理的制約（Maxwell方程式、境界条件など）を組み込む参考になる。
+  - sparse observationからのfull field再構成は、本研究の「sparse observation → full field FNO」の目標と直接一致。
+  - リアルタイム推論の設計は、本研究の高速WiFi伝播予測の要件に適合。 |
+| **現在データ形式で使えるか** | 要確認 — 海洋波の設定であり、電磁波との物理的差異がある。ただしニューラルオペレータの枠組みと物理情報の組み込み方は転用可能。 |
+| **実装コスト** | 中 — 物理情報損失関数の設計が必要。ただしFNOのベースアーキテクチャは共通。 |
+| **注意点** |
+  - 海洋波の物理法則（浅水方程式など）であり、電磁波のMaxwell方程式への適用は直接的ではない。物理損失関数の設計を電磁波向けに再設計する必要がある。 |
+| **要確認事項** |
+  - 物理情報損失関数の具体的な設計方法
+  - sparse observationの設定（観測点の数、配置、間隔）
+  - wavefield再構成の具体的な精度数値
+  - リアルタイム推論の定義（推論時間、フレームレートなど）
+  - 電磁波方程式への適用事例の有無
+  - 実装コードの公開状況 |
+
+---
