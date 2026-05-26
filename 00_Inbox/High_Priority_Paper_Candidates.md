@@ -237,3 +237,62 @@
   - 電磁場誤差の具体的な数値
   - 本研究の2D Ez定常場設定への適用可能性
   - 実装コードの公開状況 |
+
+
+---
+
+## 2026-03-26 | Physics-Informed Neural Operator for Electromagnetic Inverse Scattering Problems
+
+- **Title**: Physics-Informed Neural Operator for Electromagnetic Inverse Scattering Problems
+- **Authors**: Q. C. Dong, Zi-Xuan Su, Qing Huo Liu, Wen Chen, Zhizhang Chen
+- **Year**: 2026
+- **arXiv ID**: 2603.25404
+- **URL**: https://arxiv.org/abs/2603.25404
+- **Priority**: High
+- **High判定理由**:
+  - 対象物理: Electromagnetic inverse scattering (電磁波逆散乱問題)
+  - 入力/出力field: 誘電率分布 → 誘導電流分布 (field prediction)
+  - FNO/Neural Operatorとの関係: Physics-Informed Neural Operator (PINO) を用いた電磁波シミュレーション
+  - 本研究のEz full-field予測への接続: 電磁場分布をneural operatorで予測するアプローチが直接関連。逆問題だが、forward mappingのアーキテクチャは参考になる
+- **対象物理現象**: Electromagnetic inverse scattering (電磁波逆散乱)
+- **入力/出力field**: 誘電率分布 (入力) → 誘導電流分布 (出力)
+- **使用手法**: Physics-Informed Neural Operator (PINO), hybrid loss (state loss + data loss + TV regularization)
+- **baseline**: 従来の逆散乱手法 (abstractから推測)
+- **評価指標**: 再構成精度 (abstractから推測)
+- **精度向上**: 要本文確認
+- **本研究への使い道**: 電磁場予測におけるphysics-informed lossの設計参考。neural operatorのアーキテクチャ比較
+- **現在のデータ形式で使えるか**: 要確認 (逆問題設定だが、forward mapping部分は転用可能か)
+- **実装コスト**: Med (physics-informed lossの設計が必要)
+- **要確認事項**:
+  - forward mappingとしての性能
+  - 2D/3D設定
+  - sparse observation下での性能
+
+---
+
+## 2026-01-26 | Data-Efficient Electromagnetic Surrogate Solver Through Dissipative Relaxation Transfer Learning
+
+- **Title**: Data-Efficient Electromagnetic Surrogate Solver Through Dissipative Relaxation Transfer Learning
+- **Authors**: Sunghyun Nam, Chan Y. Park, Min Seok Jang
+- **Year**: 2026
+- **arXiv ID**: 2601.18235
+- **URL**: https://arxiv.org/abs/2601.18235
+- **Priority**: High
+- **High判定理由**:
+  - 対象物理: Electromagnetic simulations (電磁波シミュレーション)
+  - 入力/出力field: 電磁場分布予測 (surrogate solver)
+  - FNO/Neural Operatorとの関係: Neural network surrogate solver for electromagnetic simulations
+  - 本研究のEz full-field予測への接続: 電磁波surrogate solverとして直接関連。resonant phenomenaの扱いがWiFi propagationで重要
+- **対象物理現象**: Electromagnetic wave propagation with resonant phenomena (共振現象を含む電磁波伝搬)
+- **入力/出力field**: 電磁場入力 → 電磁場分布 (surrogate solver)
+- **使用手法**: Dissipative Relaxation Transfer Learning (DIRTL), transfer learning + data-efficient training
+- **baseline**: 従来のneural network surrogate solvers
+- **評価指標**: 予測精度、安定性 (abstractから推測)
+- **精度向上**: 要本文確認
+- **本研究への使い道**: 電磁波surrogate solverのdata-efficient training手法参考。resonant phenomenaの扱いがWiFi環境で重要
+- **現在のデータ形式で使えるか**: 要確認 (surrogate solver設定だが、training手法は転用可能)
+- **実装コスト**: Med (transfer learningの設定が必要)
+- **要確認事項**:
+  - 具体的なアーキテクチャ (FNOベースか)
+  - 2D/3D設定
+  - WiFi propagationへの適用可能性
