@@ -296,3 +296,72 @@
   - 具体的なアーキテクチャ (FNOベースか)
   - 2D/3D設定
   - WiFi propagationへの適用可能性
+
+
+---
+
+## 2026 | Fast Reconstruction of Exact Maxwell Dynamics from Sparse Data
+
+- **Title**: Fast Reconstruction of Exact Maxwell Dynamics from Sparse Data
+- **Authors**: Dan DeGenaro, Xin Li, Obed Amo, Michael Pokojovy, Sarah Adel Bargal, Markus Lange‐Hegermann, Bogdan Raiţă
+- **Year**: 2026
+- **arXiv ID**: 2605.20514
+- **DOI**: なし
+- **URL**: https://arxiv.org/abs/2605.20514
+- **Source API**: openalex
+- **Priority**: High
+- **High判定理由**:
+  - 対象物理: title/abstract に electromagnetic / Maxwell / photonic / wireless / scattering 等の関連語が含まれる。
+  - 入力/出力field: abstract上は field prediction / reconstruction / surrogate の文脈。詳細は要本文確認。
+  - FNO/Neural Operatorとの関係: neural operator / surrogate / reconstruction 系候補として検索スコア条件を満たす。
+  - 本研究のEz full-field予測への接続: 電磁場・伝搬場の高速推定または疎観測再構成の設計比較対象になりうる。
+- **対象物理現象**: 要本文確認
+- **入力/出力field**: 要本文確認
+- **使用手法**: 要本文確認
+- **baseline**: 要本文確認
+- **評価指標**: 要本文確認
+- **精度向上**: 要本文確認
+- **本研究への使い道**: WiFi電波伝搬サロゲートの候補手法・比較対象・補助損失設計の参考。
+- **現在のデータ形式で使えるか**: 要確認
+- **実装コスト**: 要確認
+- **要確認事項**:
+  - 本文で手法がFNO/Neural Operator系か、または比較対象として妥当か確認
+  - 2D Ez定常場への適用可能性
+  - 入出力テンソル、境界条件、source表現
+  - コード・データ公開状況
+- **Abstract memo**: We introduce FLASH-MAX, a shallow, exact-by-construction neural network architecture for predicting homogeneous electromagnetic fields from sparse pointwise observations. Each hidden neuron represents a separate exact solution to Maxwell's equations, so that the network satisfies the governing equations symbolically by construction and can be trained end-to-end from sparse data within seconds. We prove a universal approximation result showing that this exact model class remains universal on arbitrary domains. FLASH-MAX reaches sub-1% relative validation error from about 1K sparse pointwise observations in seconds, all while maintaining a zero PDE residual, and keeps single-digit errors even ...
+
+
+---
+
+## 2026 | PointNeRT: A Physics Aware Neural Ray Tracing Surrogate for Propagation Channel Modeling
+
+- **Title**: PointNeRT: A Physics Aware Neural Ray Tracing Surrogate for Propagation Channel Modeling
+- **Authors**: Zhuoyin Li, Ruisi He, Mi Yang, Ziyi Qi, Zhengyu Zhang, Jiahui Han, Haoxiang Zhang, Bingcheng Liu
+- **Year**: 2026
+- **arXiv ID**: 2605.11828
+- **DOI**: なし
+- **URL**: https://arxiv.org/abs/2605.11828
+- **Source API**: openalex
+- **Priority**: High
+- **High判定理由**:
+  - 対象物理: title/abstract に electromagnetic / Maxwell / photonic / wireless / scattering 等の関連語が含まれる。
+  - 入力/出力field: abstract上は field prediction / reconstruction / surrogate の文脈。詳細は要本文確認。
+  - FNO/Neural Operatorとの関係: neural operator / surrogate / reconstruction 系候補として検索スコア条件を満たす。
+  - 本研究のEz full-field予測への接続: 電磁場・伝搬場の高速推定または疎観測再構成の設計比較対象になりうる。
+- **対象物理現象**: 要本文確認
+- **入力/出力field**: 要本文確認
+- **使用手法**: 要本文確認
+- **baseline**: 要本文確認
+- **評価指標**: 要本文確認
+- **精度向上**: 要本文確認
+- **本研究への使い道**: WiFi電波伝搬サロゲートの候補手法・比較対象・補助損失設計の参考。
+- **現在のデータ形式で使えるか**: 要確認
+- **実装コスト**: 要確認
+- **要確認事項**:
+  - 本文で手法がFNO/Neural Operator系か、または比較対象として妥当か確認
+  - 2D Ez定常場への適用可能性
+  - 入出力テンソル、境界条件、source表現
+  - コード・データ公開状況
+- **Abstract memo**: Ray tracing (RT) has emerged as a key tool for propagation channel modeling and network planning. Conventional RT is based on electromagnetic (EM) wave theory and its application relies on detailed mesh-based environment representations and material properties. In realistic environments, limited environmental geometry and material uncertainties hinder its scalability to complex scenarios. In this paper, we propose a novel physics aware neural RT surrogate named PointNeRT to address these limitations. The proposed model directly takes point clouds as environmental input, and efficiently reconstruct multipath without explicitly constructing mesh models or manually defining EM interaction rules...
+
