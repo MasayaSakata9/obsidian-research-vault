@@ -365,3 +365,579 @@
   - コード・データ公開状況
 - **Abstract memo**: Ray tracing (RT) has emerged as a key tool for propagation channel modeling and network planning. Conventional RT is based on electromagnetic (EM) wave theory and its application relies on detailed mesh-based environment representations and material properties. In realistic environments, limited environmental geometry and material uncertainties hinder its scalability to complex scenarios. In this paper, we propose a novel physics aware neural RT surrogate named PointNeRT to address these limitations. The proposed model directly takes point clouds as environmental input, and efficiently reconstruct multipath without explicitly constructing mesh models or manually defining EM interaction rules...
 
+
+---
+
+## 2026-05-28 | Codex Research-Container Candidate Batch
+
+研究用コンテナの進捗文脈から選定された 2024-2026 年の候補論文一覧。Hermes Reader/Verifier が順次読むためのキュー。
+
+---
+
+## 2025 | A Data-Aware Fourier Neural Operator for Modeling Spatiotemporal Electromagnetic Fields
+
+- **Title**: A Data-Aware Fourier Neural Operator for Modeling Spatiotemporal Electromagnetic Fields
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2508.17238
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2508.17238
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: FDTD-like EM field evolution, adaptive spectral/mode design, Ez/Hx/Hy系に近く current FNO の直接改善候補。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | Physic-informed deep operator networks for modeling 2D time-domain electromagnetic wave propagation in various media
+
+- **Title**: Physic-informed deep operator networks for modeling 2D time-domain electromagnetic wave propagation in various media
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S2589004226004517
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: 2D EM、source/material generalization、FDTD比較があり、source-conditioned operator の設計参考になる。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | Fourier Neural Operator as a Surrogate Model for 2D Electromagnetic FDTD Simulation
+
+- **Title**: Fourier Neural Operator as a Surrogate Model for 2D Electromagnetic FDTD Simulation
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.clawrxiv.io/abs/2603.00351
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: 2D TM steady EM fieldを permittivity/source から予測するため、現行課題に最も形が近い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | PIC2O-Sim: A Physics-Inspired Causality-Aware Dynamic Convolutional Neural Operator for Ultra-Fast Photonic Device FDTD Simulation
+
+- **Title**: PIC2O-Sim: A Physics-Inspired Causality-Aware Dynamic Convolutional Neural Operator for Ultra-Fast Photonic Device FDTD Simulation
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2406.17810
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2406.17810
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: Maxwell/FDTD surrogateで、local causality と permittivity-dependent propagation が壁近傍誤差に効く可能性。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | NSNO: Neumann Series Neural Operator for Solving Helmholtz Equations in Inhomogeneous Medium
+
+- **Title**: NSNO: Neumann Series Neural Operator for Solving Helmholtz Equations in Inhomogeneous Medium
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2401.13494
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2401.13494
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: inhomogeneity + source term -> solution の Helmholtz operator で、2.4GHz steady field に理論的に近い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | MscaleFNO: Multi-scale Fourier Neural Operator Learning for Oscillatory Function Spaces
+
+- **Title**: MscaleFNO: Multi-scale Fourier Neural Operator Learning for Oscillatory Function Spaces
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2412.20183
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2412.20183
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: FNO の高周波・oscillatory field 弱点を狙っており、干渉縞と max error 改善候補。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Learned frequency-domain scattered wavefield solutions using neural operators
+
+- **Title**: Learned frequency-domain scattered wavefield solutions using neural operators
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2405.01272
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2405.01272
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: source/frequencyを埋め込む scattered wavefield NO で、source_map 条件付け改善に近い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Multiple-input Fourier Neural Operator for source-dependent 3D elastodynamics
+
+- **Title**: Multiple-input Fourier Neural Operator for source-dependent 3D elastodynamics
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S0021999125000968
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: source位置・向きを明示入力する FNO 系で、WiFi source_map 条件付けの公平な拡張に使える。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Enhancing Fourier Neural Operators with Local Spatial Features
+
+- **Title**: Enhancing Fourier Neural Operators with Local Spatial Features
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2503.17797
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2503.17797
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: Conv-FNO型で局所特徴を足すだけなので、source-near/wall boundary の局所誤差に実装しやすい。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Neural Operators with Localized Integral and Differential Kernels
+
+- **Title**: Neural Operators with Localized Integral and Differential Kernels
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2402.16845
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2402.16845
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: FNOの過平滑化を local kernel で補う設計で、壁影・source近傍の sharp error に直結する。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | LOGLO-FNO: Efficient Learning of Local and Global Features in Fourier Neural Operators
+
+- **Title**: LOGLO-FNO: Efficient Learning of Local and Global Features in Fourier Neural Operators
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2504.04260
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2504.04260
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: local/global 分岐で FNO の高周波欠落を補うため、既存FNOの差分ablationがしやすい。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | FreqMoE: Dynamic Frequency Enhancement for Neural PDE Solvers
+
+- **Title**: FreqMoE: Dynamic Frequency Enhancement for Neural PDE Solvers
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2505.06858
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2505.06858
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: low-frequency pretrain/high-frequency fine-tune は interference と max error 改善の候補。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | RecFNO: A resolution-invariant flow and heat field reconstruction method from sparse observations via Fourier neural operator
+
+- **Title**: RecFNO: A resolution-invariant flow and heat field reconstruction method from sparse observations via Fourier neural operator
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/abs/pii/S1290072923004805
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: sparse/line observationを full-field に戻す構成で、router line/patch auxiliary の次の形に近い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Active operator learning with predictive uncertainty quantification for partial differential equations
+
+- **Title**: Active operator learning with predictive uncertainty quantification for partial differential equations
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2503.03178
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2503.03178
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: error/uncertaintyで追加Meep caseやregion weightを選ぶ設計に使える。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Data-Efficient Operator Learning via Unsupervised Pretraining and In-Context Learning
+
+- **Title**: Data-Efficient Operator Learning via Unsupervised Pretraining and In-Context Learning
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2402.15734
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2402.15734
+- **Source API**: research-container-codex
+- **Priority**: High
+- **Why candidate**: unlabeled geometry/source map の mask/super-resolution pretrain が高価なMeep教師節約に合う。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Amortized Fourier Neural Operators
+
+- **Title**: Amortized Fourier Neural Operators
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://proceedings.neurips.cc/paper_files/paper/2024/hash/d06a797c436cd5136a6f45b063316278-Abstract-Conference.html
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: 周波数mode表現を改善し、現行 fno_modes=256 の高周波表現不足に効く可能性。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | MgFNO: Multi-grid Architecture Fourier Neural Operator for Parametric Partial Differential Equations
+
+- **Title**: MgFNO: Multi-grid Architecture Fourier Neural Operator for Parametric Partial Differential Equations
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2407.08615
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2407.08615
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: 800x800高解像度で multi-grid/local-to-global 表現を試せる。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Gabor-Filtered Fourier Neural Operator for solving Partial Differential Equations
+
+- **Title**: Gabor-Filtered Fourier Neural Operator for solving Partial Differential Equations
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S0045793024000719
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: Gabor/Fourier filtering は局所波束・高周波干渉を扱いやすい可能性。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Physics-constrained machine learning for electrodynamics without gauge ambiguity based on Fourier transformed Maxwell's equations
+
+- **Title**: Physics-constrained machine learning for electrodynamics without gauge ambiguity based on Fourier transformed Maxwell's equations
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.nature.com/articles/s41598-024-65650-9
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: Maxwell制約を Fourier 表現で入れる方向で、完全PDE lossでなく補助制約として検討できる。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Physics-informed Neural Operators for Predicting 3D Electromagnetic Fields Transformed by Metasurfaces
+
+- **Title**: Physics-informed Neural Operators for Predicting 3D Electromagnetic Fields Transformed by Metasurfaces
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2512.15694
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2512.15694
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: Maxwell系NOの物理制約付き設計で、EM field surrogate の近縁事例。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Physical knowledge improves prediction of EM Fields
+
+- **Title**: Physical knowledge improves prediction of EM Fields
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2503.11703
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2503.11703
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: permittivity/conductivity/sourceに近い入力でEM場予測し、物理特徴追加の参考になる。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Wave Interpolation Neural Operator
+
+- **Title**: Wave Interpolation Neural Operator
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2408.02971
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2408.02971
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: wavelength/frequency条件付けのNOで、将来2.4GHz以外へ拡張するなら有用。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | A boundary-based fourier neural operator method for efficient parametric acoustic wave analysis
+
+- **Title**: A boundary-based fourier neural operator method for efficient parametric acoustic wave analysis
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://link.springer.com/article/10.1007/s00366-024-02103-x
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: boundary/wave問題向けFNOで、壁境界の扱いを強化する設計ヒントになる。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Deep neural Helmholtz operators for 3-D elastic wave propagation and inversion
+
+- **Title**: Deep neural Helmholtz operators for 3-D elastic wave propagation and inversion
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://academic.oup.com/gji/article/239/3/1469/7760394
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: frequency-domain wave operatorの高速化で、Helmholtz的 steady WiFi場に近い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Reducing Frequency Bias of Fourier Neural Operators in 3D Seismic Wavefield Simulations Through Multi-Stage Training
+
+- **Title**: Reducing Frequency Bias of Fourier Neural Operators in 3D Seismic Wavefield Simulations Through Multi-Stage Training
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2503.02023
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2503.02023
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: FNOの低周波先行・高周波苦手問題を明示的に扱う。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Physics field super-resolution reconstruction via enhanced diffusion model and fourier neural operator
+
+- **Title**: Physics field super-resolution reconstruction via enhanced diffusion model and fourier neural operator
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S2095034925000364
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: coarse-to-fine field reconstructionの候補で、低解像度Meep pretrain案に合う。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | 3-D full-field reconstruction of chemically reacting flow towards high-dimension conditions through machine learning
+
+- **Title**: 3-D full-field reconstruction of chemically reacting flow towards high-dimension conditions through machine learning
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S1385894724079269
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: RSRNetの元論文で、feature loss/低次元補助の既存実験の妥当化に使える。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | Building Digital Twin for 3D Multi-Field Reconstruction and Optimization of Industrial-Scale Combustion Systems
+
+- **Title**: Building Digital Twin for 3D Multi-Field Reconstruction and Optimization of Industrial-Scale Combustion Systems
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S2095809925004874
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: MFRNetの multi-fidelity/feature fusion が低解像度Meep→高解像度Ez残差学習に合う。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | Learning multi-physical system on a unified manifold by collaboratively fused features
+
+- **Title**: Learning multi-physical system on a unified manifold by collaboratively fused features
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://www.sciencedirect.com/science/article/pii/S0952197626004598
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: CoFFe型の sparse/manifold pretraining は将来の少数観測・複数物理量化に使える。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | GLU: Global-Local-Uncertainty Fusion for Scalable Spatiotemporal Reconstruction and Forecasting
+
+- **Title**: GLU: Global-Local-Uncertainty Fusion for Scalable Spatiotemporal Reconstruction and Forecasting
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: 2603.26023
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2603.26023
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: global/local/uncertainty weighting は現行 region-weighted loss の発展形として使える。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | MTL-FNO: A Lightweight Multi-Task Fourier Neural Operator for Sparse Field Reconstruction
+
+- **Title**: MTL-FNO: A Lightweight Multi-Task Fourier Neural Operator for Sparse Field Reconstruction
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: 2605.26718
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2605.26718
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: sparse field reconstruction と multi-task shared FNO が、region別 auxiliary head に近い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | iRadioDiff: Physics-Informed Diffusion Model for Indoor Radio Map Construction and Localization
+
+- **Title**: iRadioDiff: Physics-Informed Diffusion Model for Indoor Radio Map Construction and Localization
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2511.20015
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2511.20015
+- **Source API**: research-container-codex
+- **Priority**: Medium
+- **Why candidate**: indoor RF、material係数、diffraction/LoS/boundary-weighted objective が壁影誤差に参考。ただしpathloss寄り。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | Physically Accurate Differentiable Inverse Rendering for Radio Frequency Digital Twin
+
+- **Title**: Physically Accurate Differentiable Inverse Rendering for Radio Frequency Digital Twin
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: 2603.18026
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2603.18026
+- **Source API**: research-container-codex
+- **Priority**: Low
+- **Why candidate**: RF反射/回折境界を連続化する考えは、wall-shadow region設計の参考になる。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2026 | oneTwin: Online Digital Network Twin via Neural Radio Radiance Field
+
+- **Title**: oneTwin: Online Digital Network Twin via Neural Radio Radiance Field
+- **Authors**: 要確認
+- **Year**: 2026
+- **arXiv ID**: 2601.03216
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2601.03216
+- **Source API**: research-container-codex
+- **Priority**: Low
+- **Why candidate**: radio digital twin と material tuning は近いが、出力は物理層metric寄りで直接比較は弱い。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2024 | Physics-informed generative neural networks for RF propagation prediction with application to indoor body perception
+
+- **Title**: Physics-informed generative neural networks for RF propagation prediction with application to indoor body perception
+- **Authors**: 要確認
+- **Year**: 2024
+- **arXiv ID**: 2405.02131
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2405.02131
+- **Source API**: research-container-codex
+- **Priority**: Low
+- **Why candidate**: indoor RF/EM diffractionを生成モデルに入れる例だが、FNO/全場Ez教師とは距離がある。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction
+
+- **Title**: TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2501.16023
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2501.16023
+- **Source API**: research-container-codex
+- **Priority**: Low
+- **Why candidate**: indoor geometry/source conditioned map refinementは参考になるが、pathloss-onlyなので低優先。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | IPP-Net: A Generalizable Deep Neural Network Model for Indoor Pathloss Radio Map Prediction
+
+- **Title**: IPP-Net: A Generalizable Deep Neural Network Model for Indoor Pathloss Radio Map Prediction
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: 2501.06414
+- **DOI**: 要確認
+- **URL**: https://arxiv.org/abs/2501.06414
+- **Source API**: research-container-codex
+- **Priority**: Low
+- **Why candidate**: indoor radio mapの公平比較設計・augmentation参考用、ただしEz/FDTD surrogateではない。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
+
+---
+
+## 2025 | Sparse-Guided RadioUNet with Adaptive Sampling for the MLSP 2025 Sampling-Assisted Pathloss Radio Map Prediction Data Competition
+
+- **Title**: Sparse-Guided RadioUNet with Adaptive Sampling for the MLSP 2025 Sampling-Assisted Pathloss Radio Map Prediction Data Competition
+- **Authors**: 要確認
+- **Year**: 2025
+- **arXiv ID**: なし
+- **DOI**: 要確認
+- **URL**: https://openreview.net/forum?id=bsK6nGqzsW
+- **Source API**: research-container-codex
+- **Priority**: Low
+- **Why candidate**: sparse sample + map conditioningは router patch/line 拡張の参考になるが pathloss対象。
+- **要確認事項**: 概要・本文・コード・入力出力・baseline・metrics
